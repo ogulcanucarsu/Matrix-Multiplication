@@ -14,12 +14,12 @@
 #include <unistd.h>
 #include <pthread.h>
 
-#define DIM 6000
+#define DIM 10000
 
 void single_multiply(int rowStart, int rowEnd);
 void *thread_multiply(void *offset);
 int cores = 4;
-int r=6000, c=6000, len=0; 
+int r=10000, c=10000, len=0; 
 int **first,**second;
 int **multiply; 	 
 int *ptrFirst, *ptrSecond, *ptrFinally;
