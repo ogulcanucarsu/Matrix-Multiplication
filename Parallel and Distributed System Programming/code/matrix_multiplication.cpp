@@ -1,6 +1,6 @@
-#pragma GCC optimize("O3", "unroll-loops", "omit-frame-pointer", "inline") //Optimization flags
-#pragma GCC option("arch=native", "tune=native", "no-zero-upper") //Enable AVX
-#pragma GCC target("avx")  //Enable AVX
+#pragma GCC optimize("O3", "unroll-loops", "omit-frame-pointer", "inline")
+#pragma GCC option("arch=native", "tune=native", "no-zero-upper") 
+#pragma GCC target("avx")  
 
 #include <stdio.h>
 #include <iostream> 
@@ -18,7 +18,7 @@
 
 void single_multiply(int rowStart, int rowEnd);
 void *thread_multiply(void *offset);
-int cores = 4;
+int cores = 6;
 int r=10000, c=10000, len=0; 
 int **first,**second;
 int **multiply; 	 
@@ -37,8 +37,6 @@ int main()
 	ptrSecond = (int *)(second + r); 
 	ptrFinally= (int *)(multiply + r); 
    
-
-  
     for(i = 0; i < r; i++) 
          first[i] = (ptrFirst + c * i); 
         
