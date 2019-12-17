@@ -1,0 +1,2 @@
+mpicc matric.c -o matric
+./matric
