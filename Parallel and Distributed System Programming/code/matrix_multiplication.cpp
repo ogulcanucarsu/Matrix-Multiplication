@@ -18,7 +18,7 @@
 
 void single_multiply(int rowStart, int rowEnd);
 void *thread_multiply(void *offset);
-int cores = 6;
+int cores = 4;
 int r=10000, c=10000, len=0; 
 int **first,**second;
 int **multiply; 	 
