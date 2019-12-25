@@ -1,2 +1,2 @@
 mpicc matric.c -o matric
-./matric
+mpirun -np 2 ./matric
