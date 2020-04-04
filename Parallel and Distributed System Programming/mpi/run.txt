@@ -1,8 +1,0 @@
-1- Terminalden kaynak kodun bulunduðu dizine gidilir.
-2- Kod derlenir.
-3- Kaç çekirdekte üzerinde çalýþtýrýlacaksa derlenir.
-4- 1 çekirdekte uygulama çekirdek sayýsýný arttýrýn hatasý verir. 
-
-Komutlar 
-1- Derleme Kodu  --> mpicc matric.c -o matric
-2- Çalýþtýrma kodu --> mpirun -np 2 ./matric

@@ -6,29 +6,10 @@
 #include <string.h>
 #include <assert.h>
 #include <windows.h> 
-#include<pthread.h> 
-#include<unistd.h> 
-
-//Each thread computes single element in the resultant matrix 
-void *mult(void* arg) 
-{ 
-    int *data = (int *)arg; 
-    int k = 0, i = 0; 
-      
-    int x = data[0]; 
-    for (i = 1; i <= x; i++) 
-           k += data[i]*data[i+x]; 
-      
-    int *p = (int*)malloc(sizeof(int)); 
-         *p = k; 
-      
-//Used to terminate a thread and the return value is passed as a pointer 
-    pthread_exit(p); 
-} 
 
 int main()
 {
-    int r=2500, c=2500, len=0; 
+    int r=10000, c=10000, len=0; 
     int *ptrFirst, *ptrSecond, *ptrFinally;
 	int **first,**second;
 	int **multiply; 	 
@@ -69,55 +50,9 @@ int main()
             multiply[i][j]= 0;
 		}
 	}
-	
-	int max = c*r; 
-      
-    //declaring array of threads of size r1*c2         
-    pthread_t *threads; 
-    threads = (pthread_t*)malloc(max*sizeof(pthread_t)); 
-
- 	int count2 = 0; 
-    //int* data = NULL; 
-    for (int i = 0; i < r; i++){
-    	     for (int j = 0; j < c; j++) 
-        {      
-            //storing row and column elements in data  
-            //data = (int *)malloc((3000)*sizeof(int)); 
-            //data[0] = c1; 
-            //for (int k = 0; k < c; k++) 
-           //     multiply[k+1] = first[i][k]; 
-      
-           // for (int k = 0; k < r; k++) 
-           //     multiply[k+c+1] = second[k][j]; 
-               
-             //creating threads 
-                pthread_create(&threads[count2++], NULL,mult, (void*)(multiply)); 
-                  
-        } 
-	} 
-	
-	printf("RESULTANT MATRIX IS :- \n"); 
-    for (i = 0; i < c; i++)  
-    { 
-      void *k; 
-        
-      //Joining all threads and collecting return value  
-      pthread_join(threads[i], &k); 
-               
-      int *p = (int *)k; 
-      printf("%d ",*p); 
-      if ((i + 1) % c == 0) 
-          printf("\n"); 
-    } 
-   
-	return 0;
-} 
-
-
-  
 	       
-    /*        
-    //i, j1, j2, k    
+            
+    //i, j1, j2, k         
 	printf("i, j1, j2, k basladi");
 	printf("\n\n");
 	GetLocalTime(&t);
@@ -130,7 +65,6 @@ int main()
             }
 		  }
 	 }
-	 
 	 
 	GetLocalTime(&t);
 	printf("Year: %d, Month: %d, Day: %d, Hour: %d, Minute:%d, Second: %d, Millisecond: %d", t.wYear, t.wMonth, t.wDay, t.wHour, t.wMinute, t.wSecond, t.wMilliseconds);
@@ -232,6 +166,7 @@ int main()
 	printf("Year: %d, Month: %d, Day: %d, Hour: %d, Minute:%d, Second: %d, Millisecond: %d", t.wYear, t.wMonth, t.wDay, t.wHour, t.wMinute, t.wSecond, t.wMilliseconds);
 	printf("\n\n");
     printf("k, j1, j2, i bitti ");
-	printf("\n\n");*/
+	printf("\n\n");
         
-
+  return 0;
+} 
